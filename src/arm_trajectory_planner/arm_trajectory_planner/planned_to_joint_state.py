@@ -4,6 +4,7 @@ from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import JointState
 
 
+# 桥接节点（依附于轨迹规划节点）
 class PlannedToJointState(Node):
     def __init__(self):
         super().__init__('planned_to_joint_state')

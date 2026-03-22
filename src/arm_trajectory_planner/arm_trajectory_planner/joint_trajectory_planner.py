@@ -6,6 +6,7 @@ import time
 import math
 
 
+# 机械臂轨迹规划节点
 class JointTrajectoryPlanner(Node):
     def __init__(self):
         super().__init__('joint_trajectory_planner')

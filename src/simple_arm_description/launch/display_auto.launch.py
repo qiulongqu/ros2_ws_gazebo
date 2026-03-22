@@ -9,8 +9,7 @@ def generate_launch_description():
     urdf_path = description_share / 'urdf' / 'simple_6dof_arm.urdf'
     rviz_config_path = description_share / 'rviz' / 'arm_display.rviz'
 
-    with open(urdf_path, 'r') as infp:
-        robot_description_content = infp.read()
+    robot_description_content = urdf_path.read_text()
 
     robot_description = {'robot_description': robot_description_content}
 

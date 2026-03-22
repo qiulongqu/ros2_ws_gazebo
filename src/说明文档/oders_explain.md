@@ -2,7 +2,7 @@
 
 ## 1：在每个终端打开之前必须运行的
     目的是：设置环境变量，使得ROS2可以正常运行。
-    source ~/ros2_ws_practise/install/setup.bash
+    source ~/ros2_ws_gazebo/install/setup.bash
 
 ## 2：创建运行包体：
     作用是：创建一个ROS2运行包。
@@ -14,11 +14,11 @@
 
 ## 3：编译运行包：
     作用是：编译运行包，可以使得ROS2可以识别到该包。
-    cd ~/ros2_ws_practise
+    cd ~/ros2_ws_gazebo
     colcon build
 
     例如：
-    cd ~/ros2_ws_practise/src/simple_arm_description
+    cd ~/ros2_ws_gazebo/src/simple_arm_description
     colcon build --packages-select simple_arm_description
     > (编译指定的包，加上--packages-select参数，可以只编译指定的包。)
 

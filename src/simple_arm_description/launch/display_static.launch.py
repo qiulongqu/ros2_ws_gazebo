@@ -8,6 +8,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     pkg_share = Path(get_package_share_directory('simple_arm_description'))
     urdf_path = pkg_share / 'urdf' / 'simple_6dof_arm.urdf'
+    rviz_config_path = pkg_share / 'rviz' / 'arm_display.rviz'
     robot_description_content = urdf_path.read_text()
 
     robot_description = {'robot_description': robot_description_content}
@@ -20,14 +21,19 @@ def generate_launch_description():
             parameters=[robot_description]
         ),
         Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
+            package='arm_trajectory_planner',
+            executable='planned_to_joint_state',
             output='screen',
-            parameters=[robot_description]
+        ),
+        Node(
+            package='arm_trajectory_planner',
+            executable='joint_trajectory_planner',
+            output='screen'
         ),
         Node(
             package='rviz2',
             executable='rviz2',
+            arguments=['-d', str(rviz_config_path)],
             output='screen'
         )
     ])
